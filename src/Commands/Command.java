@@ -1,5 +1,5 @@
 package Commands;
 
-abstract public interface Command {
-   private void action(){};
+public abstract interface Command {
+   public void action();
 }

@@ -1,6 +1,8 @@
 import Exceptions.MyException;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+
 public class Main {
     public static void main(String[] args) {
         try (BufferedReader reader = getReader(args)) {
@@ -10,7 +12,7 @@ public class Main {
 //            }
             Calculator calculator = new Calculator(reader);
             calculator.doCalculating();
-        } catch (IOException | MyException e) {
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
