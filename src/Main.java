@@ -1,40 +1,25 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import Exceptions.MyException;
 
+import java.io.*;
 public class Main {
     public static void main(String[] args) {
-        BufferedReader reader = null;
-
-        if (args.length > 0) {
-            String filename = args[0];
-            try {
-                reader = new BufferedReader(new FileReader(filename));
-            } catch (IOException e) {
-                System.out.println("Error reading file: " + e.getMessage());
-                return;
-            }
-        } else {
-            reader = new BufferedReader(new InputStreamReader(System.in));
+        try (BufferedReader reader = getReader(args)) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+//            }
+            Calculator calculator = new Calculator(reader);
+            calculator.doCalculating();
+        } catch (IOException | MyException e) {
+            System.err.println(e.getMessage());
         }
+    }
 
-        try {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // process each line of data here
-                System.out.println(line);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading input: " + e.getMessage());
-        } finally {
-            try {
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                System.out.println("Error closing reader: " + e.getMessage());
-            }
+    private static BufferedReader getReader(String[] args) throws FileNotFoundException {
+        if (args.length > 0) {
+            return new BufferedReader(new FileReader(args[0]));
+        } else {
+            return new BufferedReader(new InputStreamReader(System.in));
         }
     }
 }
