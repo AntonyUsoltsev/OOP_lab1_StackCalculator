@@ -1,3 +1,5 @@
+package Fabric;
+
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -5,7 +7,6 @@ import Commands.Command;
 import Exceptions.*;
 
 public class CommandCreator {
-
     private final Map<String, Class<? extends Commands.Command>> commandClassesMap;
     private static final String CONFIG_FILE_NAME = "FabricConfig";
 
@@ -24,15 +25,11 @@ public class CommandCreator {
                 if (parts.length != 2) {
                     throw new RuntimeException("Invalid config line: " + line);
                 }
-
                 String fullClassName ="Commands." + parts[1];
+
                 Class<? extends Command> cur_class = loadCommandClass(fullClassName);
-
                 commandClassesMap.put(parts[0], cur_class);
-             //   System.out.println(Arrays.toString(parts));
-
             }
-           // System.out.println(commandClasses);
         }
     }
 
@@ -47,8 +44,6 @@ public class CommandCreator {
            throw new RuntimeException(e);
        }
     }
-
-
 
     public Commands.Command createCommands(String commandName) throws  NoSuchMethodException, InvocationTargetException {
        // return commandClasses.get(commandName).newInstance();
