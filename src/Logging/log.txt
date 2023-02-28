@@ -1,0 +1,18 @@
+февр. 28, 2023 10:17:35 AM Logging.MyLogger <clinit>
+CONFIG: Read log file
+
+февр. 28, 2023 10:17:35 AM Main main
+INFO: HI first
+
+февр. 28, 2023 10:17:35 AM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands
+
+февр. 28, 2023 10:17:35 AM Commands.Division action
+INFO: Division 3.0 on 12.0
+
+февр. 28, 2023 10:17:35 AM Calculator.Calculator doCalculating
+INFO: Create commands: success
+
+февр. 28, 2023 10:17:35 AM Main main
+INFO: HI second
+

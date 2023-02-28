@@ -1,17 +1,25 @@
 import Calculator.Calculator;
+import Logging.MyLogger;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Main {
+    private static final Logger LOGGER = MyLogger.getLog();
+
     public static void main(String[] args) {
         try (BufferedReader reader = getReader(args)) {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                System.out.println(line);
-//            }
+
             Calculator calculator = new Calculator(reader);
+
             calculator.doCalculating();
+
+            LOGGER.log(Level.INFO, "End of all calculating\n");
+
         } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
             System.err.println(e.getMessage());
         }
     }
@@ -24,6 +32,8 @@ public class Main {
         }
     }
 }
+
+
 //  InputStreamReader comm_stream = new InputStreamReader(args[0]);
 //        File comm_file = new File(args[0]);
 //        System.out.println("File name: " + comm_file.getName());

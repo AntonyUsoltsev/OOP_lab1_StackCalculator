@@ -1,12 +1,14 @@
 package Commands;
+
 import Calculator.Calculator;
-public class Multiply implements Command{
+
+public class Multiply implements Command {
     @Override
     public void action(String[] command_args, Calculator.Parameters parameters) {
         if (command_args.length != 1) {
-            throw new IllegalArgumentException("Unknown args in MULTIPLY command");
+            throw new IllegalArgumentException("Unknown args in MULTIPLY command.");
         } else if (parameters.getStack().size() < 2) {
-            throw new RuntimeException("Stack is less than two elements. Can not count multiplication");
+            throw new RuntimeException("Stack is less than two elements. Can not count multiplication.");
         }
         String str_val1 = parameters.getStack().pop();
         String str_val2 = parameters.getStack().pop();
