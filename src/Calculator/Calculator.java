@@ -1,5 +1,7 @@
 package Calculator;
 
+import Exceptions.CalculatorExceptions;
+import Exceptions.FabricExceptions;
 import Fabric.CommandCreator;
 import Commands.Command;
 import Logging.MyLogger;
@@ -15,7 +17,7 @@ import java.util.logging.Logger;
 // DO : Make double Stack
 // DO : Logging commands
 // TODO : My Exceptions
-// TODO: Tests
+// TODO : Tests
 
 public class Calculator {
     public static class Parameters {
@@ -44,24 +46,23 @@ public class Calculator {
         this.reader = reader;
         parameters = new Parameters();
         LOGGER = MyLogger.getLogger();
-        LOGGER.log(Level.INFO, "Calculator constructor success done.\n");
+        LOGGER.info("Calculator constructor success done.\n");
     }
 
-    public void doCalculating() throws RuntimeException, IOException, InvocationTargetException, NoSuchMethodException {
-
+    public void doCalculating() throws FabricExceptions, CalculatorExceptions {
+        try {
             String line;
             CommandCreator commandCreator = new CommandCreator();
 
             while ((line = reader.readLine()) != null) {
-                if (line.charAt(0) == '#') {
+                String[] parts = line.split(" ");
+                if (parts.length == 0 || line.equals("")) {
+                    LOGGER.severe("Unknown command:'" + line + "'.\n");
+                    System.err.println("Unknown command:'" + line + "'.\n");
                     continue;
                 }
-
-                String[] parts = line.split(" ");
-                if (parts.length == 0) {
-                    LOGGER.log(Level.SEVERE, "Unknown command:'" + line + "' while reading commands.\n");
+                if (line.charAt(0) == '#') {
                     continue;
-                    // throw new IllegalArgumentException("Unknown command:'" + line + '\'');
                 }
 
                 Command command = commandCreator.createCommands(parts[0]);
@@ -69,8 +70,9 @@ public class Calculator {
                     command.action(parts, parameters);
                 }
             }
-
-        // LOGGER.log(Level.INFO, "Create commands: success\n");
+        } catch (IOException ioExc) {
+            throw new CalculatorExceptions(ioExc.getMessage());
+        }
     }
 
 }

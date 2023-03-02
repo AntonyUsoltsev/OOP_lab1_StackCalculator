@@ -4,11 +4,11 @@ import Logging.MyLogger;
 
 import java.util.logging.Logger;
 
-public class CommandExceptions extends Exception {
+public class FabricExceptions extends Exception {
     private final String expMessage;
     private final Logger LOGGER = MyLogger.getLogger();
 
-    public CommandExceptions(String expMessage) {
+    public FabricExceptions(String expMessage) {
         this.expMessage = expMessage;
     }
 
@@ -16,7 +16,8 @@ public class CommandExceptions extends Exception {
         System.err.println(expMessage);
         LOGGER.severe(expMessage + "\n");
     }
+
+    public String getMessage(){
+        return expMessage;
+    }
 }
-
-
-

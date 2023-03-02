@@ -1,4 +1,6 @@
 import Calculator.Calculator;
+import Exceptions.CalculatorExceptions;
+import Exceptions.FabricExceptions;
 import Logging.MyLogger;
 
 import java.io.*;
@@ -6,7 +8,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class Main {
     private static final Logger LOGGER = MyLogger.getLogger();
@@ -23,15 +24,13 @@ public class Main {
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
             System.err.println(e.getMessage());
-           // System.err.println(Arrays.toString(e.getStackTrace()));
-        }
-        catch (RuntimeException re){
-            LOGGER.log(Level.SEVERE, re.getMessage() + "\n");
-            System.err.println(re.getMessage());
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
+            System.err.println(Arrays.toString(e.getStackTrace()));
+        } catch (FabricExceptions exc) {
+            exc.printException();
+            System.err.println(Arrays.toString(exc.getStackTrace()));
+        } catch (CalculatorExceptions exc) {
+            exc.printException();
+            System.err.println(Arrays.toString(exc.getStackTrace()));
         }
     }
 
