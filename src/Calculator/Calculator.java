@@ -9,6 +9,10 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// TODO : Make double Map
+// TODO : Logging commands
+// TODO : My Exceptions
+
 public class Calculator {
     public static class Parameters {
         private final Stack<String> stack;
@@ -36,6 +40,7 @@ public class Calculator {
         this.reader = reader;
         parameters = new Parameters();
         LOGGER = MyLogger.getLog();
+        LOGGER.log(Level.INFO, "Calculator constructor success done.\n");
     }
 
     public void doCalculating() throws Exception {
@@ -48,6 +53,7 @@ public class Calculator {
             }
             String[] parts = line.split(" ");
             if (parts.length == 0) {
+                LOGGER.log(Level.SEVERE, "Unknown command:'" + line + "' while reading commands.\n");
                 throw new IllegalArgumentException("Unknown command:'" + line + '\'');
             }
             Command command = commandCreator.createCommands(parts[0]);

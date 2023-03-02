@@ -26,8 +26,10 @@ public class Main {
 
     private static BufferedReader getReader(String[] args) throws FileNotFoundException {
         if (args.length > 0) {
+            LOGGER.log(Level.INFO, "Commands will be read from file\n");
             return new BufferedReader(new FileReader(args[0]));
         } else {
+            LOGGER.log(Level.INFO, "Commands will be read from System.in\n");
             return new BufferedReader(new InputStreamReader(System.in));
         }
     }
