@@ -22,6 +22,11 @@ public class Main {
             LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
             System.err.println(e.getMessage());
         }
+
+
+        //TODO: Redo catch block
+
+
     }
 
     private static BufferedReader getReader(String[] args) throws FileNotFoundException {

@@ -1,20 +1,36 @@
-февр. 28, 2023 9:49:48 PM Logging.MyLogger <clinit>
+мар. 02, 2023 3:37:55 PM Logging.MyLogger <clinit>
 CONFIG: Read log file
 
-февр. 28, 2023 9:49:48 PM Main getReader
+мар. 02, 2023 3:37:55 PM Main getReader
 INFO: Commands will be read from file
 
-февр. 28, 2023 9:49:48 PM Calculator.Calculator <init>
-INFO: Calculator constructor success done
-февр. 28, 2023 9:49:48 PM Fabric.CommandCreator loadCommands
+мар. 02, 2023 3:37:55 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 02, 2023 3:37:55 PM Fabric.CommandCreator loadCommands
 INFO: Command creator has created commands.
 
-февр. 28, 2023 9:49:48 PM Commands.Division action
-INFO: Division 3.0 on 12.0
+мар. 02, 2023 3:37:55 PM Commands.Define action
+INFO: The variable "a" has defined by 12.0.
 
-февр. 28, 2023 9:49:48 PM Calculator.Calculator doCalculating
-INFO: Create commands: success
+мар. 02, 2023 3:37:55 PM Commands.Define action
+INFO: The variable "b" has defined by 3.0.
 
-февр. 28, 2023 9:49:48 PM Main main
+мар. 02, 2023 3:37:55 PM Commands.Division action
+INFO: Division: 3.0 / 12.0
+
+мар. 02, 2023 3:37:55 PM Commands.Push action
+INFO: Push element on stack: 1.0
+
+мар. 02, 2023 3:37:55 PM Commands.Push action
+INFO: Push element on stack: 2.0
+
+мар. 02, 2023 3:37:55 PM Commands.Multiply action
+INFO: Multiply:2.0*0.25.
+
+мар. 02, 2023 3:37:55 PM Commands.Print action
+INFO: Print top element of stack:0.5
+
+мар. 02, 2023 3:37:55 PM Main main
 INFO: End of all calculating
 

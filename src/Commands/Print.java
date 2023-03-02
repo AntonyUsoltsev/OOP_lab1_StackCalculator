@@ -1,16 +1,28 @@
 package Commands;
 
 import Calculator.Calculator;
+import Logging.MyLogger;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Print implements Command {
+    private final Logger LOGGER = new MyLogger().getLog();
+
     @Override
-    public void action(String[] command_args, Calculator.Parameters parameters) {
-        if (command_args.length != 1) {
-            throw new IllegalArgumentException("Unknown args in PRINT command.");
+    public void action(String[] commandArgs, Calculator.Parameters parameters) {
+        if (commandArgs.length != 1) {
+            System.err.println("Unknown args in PRINT command.");
+            LOGGER.log(Level.SEVERE, "Unknown args in PRINT command.\n");
+            //  throw new IllegalArgumentException("Unknown args in PRINT command.");
         } else if (parameters.getStack() == null || parameters.getStack().empty()) {
-            throw new RuntimeException("Stack is empty. Top element can not be print.");
+            System.err.println("Stack is empty. Top element can not be print.");
+            LOGGER.log(Level.SEVERE, "Stack is empty. Top element can not be print.\n");
+            // throw new RuntimeException("Stack is empty. Top element can not be print.");
         } else {
-            System.out.println(parameters.getStack().peek());
+            double printValue = parameters.getStack().peek();
+            System.out.println(printValue);
+            LOGGER.log(Level.INFO, "Print top element of stack: " + printValue + "\n");
         }
     }
 }

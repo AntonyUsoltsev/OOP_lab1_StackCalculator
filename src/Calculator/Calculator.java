@@ -9,13 +9,13 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-// TODO : Make double Map
+// TODO : Make double Stack
 // TODO : Logging commands
 // TODO : My Exceptions
 
 public class Calculator {
     public static class Parameters {
-        private final Stack<String> stack;
+        private final Stack<Double> stack;
         private final Map<String, Double> variablesMap;
 
         public Parameters() {
@@ -23,7 +23,7 @@ public class Calculator {
             this.variablesMap = new HashMap<>();
         }
 
-        public Stack<String> getStack() {
+        public Stack<Double> getStack() {
             return stack;
         }
 
@@ -59,7 +59,7 @@ public class Calculator {
             Command command = commandCreator.createCommands(parts[0]);
             command.action(parts, parameters);
         }
-        LOGGER.log(Level.INFO, "Create commands: success\n");
+       // LOGGER.log(Level.INFO, "Create commands: success\n");
     }
 
 }
