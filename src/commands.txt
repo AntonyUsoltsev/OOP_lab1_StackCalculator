@@ -1,5 +1,4 @@
 DEFINE a 12
-LOL
 DEFINE b 3
 PUSH a
 PUSH b

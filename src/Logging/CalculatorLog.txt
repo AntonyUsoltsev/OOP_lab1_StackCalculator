@@ -1,0 +1,11 @@
+мар. 02, 2023 11:40:03 PM Logging.MyLogger <clinit>
+CONFIG: Logger configuration loaded.
+
+мар. 02, 2023 11:40:03 PM Main getReader
+INFO: Commands will be read from file
+
+мар. 02, 2023 11:40:03 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 02, 2023 11:40:03 PM Main main
+INFO: End of all calculating.

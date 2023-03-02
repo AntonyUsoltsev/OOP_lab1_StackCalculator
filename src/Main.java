@@ -2,13 +2,14 @@ import Calculator.Calculator;
 import Logging.MyLogger;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class Main {
-    private static final Logger LOGGER = MyLogger.getLog();
+    private static final Logger LOGGER = MyLogger.getLogger();
 
     public static void main(String[] args) {
         try (BufferedReader reader = getReader(args)) {
@@ -17,18 +18,21 @@ public class Main {
 
             calculator.doCalculating();
 
-            LOGGER.log(Level.INFO, "End of all calculating\n");
+            LOGGER.log(Level.INFO, "End of all calculating.");
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
             System.err.println(e.getMessage());
-            System.err.println(Arrays.toString(e.getStackTrace()));
+           // System.err.println(Arrays.toString(e.getStackTrace()));
         }
-
-
-        //TODO: Redo catch block
-
-
+        catch (RuntimeException re){
+            LOGGER.log(Level.SEVERE, re.getMessage() + "\n");
+            System.err.println(re.getMessage());
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static BufferedReader getReader(String[] args) throws FileNotFoundException {
@@ -41,28 +45,3 @@ public class Main {
         }
     }
 }
-
-
-//  InputStreamReader comm_stream = new InputStreamReader(args[0]);
-//        File comm_file = new File(args[0]);
-//        System.out.println("File name: " + comm_file.getName());
-//        System.out.println("Parent folder: " + comm_file.getParent());
-//
-//        if(comm_file.exists())
-//            System.out.println("File exists");
-//        else
-//            System.out.println("File not found");
-//
-//        System.out.println("File size: " + comm_file.length());
-//        if(comm_file.canRead())
-//            System.out.println("File can be read");
-//        else
-//            System.out.println("File can not be read");
-//
-//        if(comm_file.canWrite())
-//            System.out.println("File can be written");
-//        else
-//            System.out.println("File can not be written");
-//    }
-//    }
-//}

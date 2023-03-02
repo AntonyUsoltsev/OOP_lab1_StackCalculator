@@ -7,20 +7,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Commands.Command;
-import Exceptions.*;
 import Logging.MyLogger;
+import Exceptions.CommandExceptions;
 
 public class CommandCreator {
     private final Map<String, Class<? extends Commands.Command>> commandClassesMap;
     private static final String CONFIG_FILE_NAME = "FabricConfig";
-    private final Logger LOGGER = MyLogger.getLog();
+    private final Logger LOGGER = MyLogger.getLogger();
 
-    public CommandCreator() throws IOException {
+    public CommandCreator() throws RuntimeException {
         commandClassesMap = new HashMap<>();
         loadCommands();
     }
 
-    private void loadCommands() throws IOException {
+    private void loadCommands() throws RuntimeException {
         try (InputStream inputStream = CommandCreator.class.getResourceAsStream(CONFIG_FILE_NAME);
              BufferedReader configFile = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
@@ -30,12 +30,14 @@ public class CommandCreator {
                     LOGGER.log(Level.SEVERE, "Invalid fabric config line: " + line + ". Thrown exception.\n");
                     throw new IllegalArgumentException("Invalid fabric config line: " + line);
                 }
-                String fullClassName = "Commands." + parts[1];
 
-                Class<? extends Command> cur_class = loadCommandClass(fullClassName);
+                Class<? extends Command> cur_class = loadCommandClass(parts[1]);
                 commandClassesMap.put(parts[0], cur_class);
             }
             LOGGER.log(Level.INFO, "Command creator has created commands.\n");
+        }
+        catch (IOException|IllegalArgumentException ioException){
+            throw new RuntimeException(ioException.getMessage());
         }
     }
 
@@ -56,8 +58,8 @@ public class CommandCreator {
     public Commands.Command createCommands(String commandName) throws NoSuchMethodException, InvocationTargetException {
         Class<? extends Command> commandClass = commandClassesMap.get(commandName);
         if (commandClass == null) {
-            LOGGER.log(Level.SEVERE, "Unknown command:'" + commandName + "' while creating command.\n");
-            System.err.println("Unknown command:'" + commandName + "' while creating command.\n");
+            LOGGER.log(Level.SEVERE, "Unknown command:'" + commandName + "'.\n");
+            System.err.println("Unknown command:'" + commandName + "'.");
             return null;
             //throw new IllegalArgumentException("Unknown command:'" + commandName + '\'');
         }
