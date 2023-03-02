@@ -57,13 +57,17 @@ public class CommandCreator {
         Class<? extends Command> commandClass = commandClassesMap.get(commandName);
         if (commandClass == null) {
             LOGGER.log(Level.SEVERE, "Unknown command:'" + commandName + "' while creating command.\n");
-            throw new IllegalArgumentException("Unknown command:'" + commandName + '\'');
+            System.err.println("Unknown command:'" + commandName + "' while creating command.\n");
+            return null;
+            //throw new IllegalArgumentException("Unknown command:'" + commandName + '\'');
         }
         try {
             return commandClass.getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
             LOGGER.log(Level.SEVERE, "Failed to create command: " + commandName + "' while creating command.\n");
-            throw new RuntimeException("Failed to create command: '" + commandName + '\'', e);
+            System.err.println("Failed to create command: " + commandName + "' while creating command.\n");
+           // throw new RuntimeException("Failed to create command: '" + commandName + '\'', e);
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@ import Calculator.Calculator;
 import Logging.MyLogger;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +22,7 @@ public class Main {
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
             System.err.println(e.getMessage());
+            System.err.println(Arrays.toString(e.getStackTrace()));
         }
 
 

@@ -23,7 +23,7 @@ public class Multiply implements Command {
             double doubleVal1 = parameters.getStack().pop();
             double doubleVal2 = parameters.getStack().pop();
             double res = doubleVal1 * doubleVal2;
-            LOGGER.log(Level.INFO, "Multiply: " + doubleVal1 + "*" + doubleVal2 + ".\n");
+            LOGGER.log(Level.INFO, "Multiply: " + doubleVal1 + " * " + doubleVal2 + ".\n");
             //  parameters.getVariablesMap().put(Double.toString(res), res);
             parameters.getStack().push(res);
         }

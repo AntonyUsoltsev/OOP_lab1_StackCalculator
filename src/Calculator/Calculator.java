@@ -9,8 +9,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-// TODO : Make double Stack
-// TODO : Logging commands
+// DO : Make double Stack
+// DO : Logging commands
 // TODO : My Exceptions
 
 public class Calculator {
@@ -31,6 +31,7 @@ public class Calculator {
             return variablesMap;
         }
     }
+
     private final BufferedReader reader;
 
     private final Parameters parameters;
@@ -51,15 +52,20 @@ public class Calculator {
             if (line.charAt(0) == '#') {
                 continue;
             }
+
             String[] parts = line.split(" ");
             if (parts.length == 0) {
                 LOGGER.log(Level.SEVERE, "Unknown command:'" + line + "' while reading commands.\n");
-                throw new IllegalArgumentException("Unknown command:'" + line + '\'');
+                continue;
+                // throw new IllegalArgumentException("Unknown command:'" + line + '\'');
             }
+
             Command command = commandCreator.createCommands(parts[0]);
-            command.action(parts, parameters);
+            if (command != null) {
+                command.action(parts, parameters);
+            }
         }
-       // LOGGER.log(Level.INFO, "Create commands: success\n");
+        // LOGGER.log(Level.INFO, "Create commands: success\n");
     }
 
 }
