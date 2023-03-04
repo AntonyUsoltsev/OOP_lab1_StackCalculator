@@ -1,12 +1,11 @@
 import Calculator.Calculator;
+import CreateStreams.CreateStreams;
 import MyExceptions.CalculatorExceptions;
 import MyExceptions.FabricExceptions;
 import Logging.MyLogger;
-import CreateStreams.CreateStreams;
 
 import java.io.*;
 import java.util.Arrays;
-
 import java.util.logging.Logger;
 
 public class Main {
@@ -53,18 +52,5 @@ public class Main {
             }
 
         }
-        //catch (IOException e) {
-//            LOGGER.severe(e.getMessage() + "\n");
-//            BufferedWriter errorStream = CreateStreams.getErrorStream(args);
-//            errorStream.write(e.getMessage());
-        // }
-////            errorStream.write(Arrays.toString(e.getStackTrace()));
-//        } catch (FileNotFoundException fe) {
-//            System.err.println("ji2");
-////            System.err.flush();
-////            System.out.println("hh");
-////            System.out.flush();
-//
-//        }
     }
 }

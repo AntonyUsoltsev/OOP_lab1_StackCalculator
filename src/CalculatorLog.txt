@@ -1,0 +1,44 @@
+мар. 04, 2023 8:06:05 PM Logging.MyLogger <clinit>
+CONFIG: Logger configuration loaded.
+
+мар. 04, 2023 8:06:05 PM CreateStreams.CreateStreams getOutputStream
+INFO: Results will be write to file: .\src\Result.txt 
+
+мар. 04, 2023 8:06:05 PM CreateStreams.CreateStreams getErrorStream
+INFO: Errors will be write to file: .\src\Error.txt 
+
+мар. 04, 2023 8:06:05 PM CreateStreams.CreateStreams getInputStream
+INFO: Commands will be read from file: .\src\Commands.txt 
+
+мар. 04, 2023 8:06:05 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 04, 2023 8:06:05 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 04, 2023 8:06:05 PM Commands.Define action
+INFO: The variable "a" has defined by 12.0.
+
+мар. 04, 2023 8:06:05 PM Commands.Define action
+INFO: The variable "b" has defined by 3.0.
+
+мар. 04, 2023 8:06:05 PM Commands.Division action
+INFO: Division: 3.0 / 12.0
+
+мар. 04, 2023 8:06:05 PM Commands.Push action
+INFO: Push element on stack: 1.0
+
+мар. 04, 2023 8:06:05 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 04, 2023 8:06:05 PM Commands.Push action
+INFO: Push element on stack: 2.0
+
+мар. 04, 2023 8:06:05 PM Commands.Multiply action
+INFO: Multiply: 2.0 * 0.25.
+
+мар. 04, 2023 8:06:05 PM Commands.Print action
+INFO: Print top element of stack: 0.5
+
+мар. 04, 2023 8:06:05 PM Main main
+INFO: End of all calculating.

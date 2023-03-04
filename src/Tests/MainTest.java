@@ -1,14 +1,12 @@
 package Tests;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import java.io.*;
 
 import Calculator.Calculator;
 import MyExceptions.CalculatorExceptions;
 import MyExceptions.FabricExceptions;
-import org.junit.Test;
-
-import java.io.*;
 
 public class MainTest {
     private final String inputFileName = "./src/Tests/CommandsTest";

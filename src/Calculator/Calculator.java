@@ -1,21 +1,24 @@
 package Calculator;
 
+import Commands.Command;
+import Fabric.CommandCreator;
+import Logging.MyLogger;
 import MyExceptions.CalculatorExceptions;
 import MyExceptions.FabricExceptions;
-import Fabric.CommandCreator;
-import Commands.Command;
-import Logging.MyLogger;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 import java.util.logging.Logger;
 
-// DO : Make double Stack
-// DO : Logging commands
-// TODO : My Exceptions
-// TODO : Tests
+// DONE: Make double Stack
+// DONE : Logging commands
+// DONE : My Exceptions
+// DONE : Tests
 
 public class Calculator {
     public static class Parameters {

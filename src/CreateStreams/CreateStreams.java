@@ -37,6 +37,4 @@ public class CreateStreams {
             return new BufferedWriter(new OutputStreamWriter(System.err));
         }
     }
-
-
 }
