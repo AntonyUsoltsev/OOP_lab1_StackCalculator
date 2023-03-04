@@ -1,12 +1,15 @@
 package Commands;
 
-import Calculator.Calculator;
-import Exceptions.CommandExceptions;
+import Calculator.Calculator.Parameters;
+import MyExceptions.CommandExceptions;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class Division extends Command {
 
     @Override
-    public void action(String[] commandArgs, Calculator.Parameters parameters) {
+    public void action(String[] commandArgs, Parameters parameters, BufferedWriter errorStream) throws IOException {
         try {
             if (commandArgs.length != 1) {
                 throw new CommandExceptions("Invalid arguments for Division command.");
@@ -23,7 +26,7 @@ public class Division extends Command {
                 parameters.getStack().push(res);
             }
         } catch (CommandExceptions commExc) {
-            commExc.printException();
+            commExc.printException(errorStream);
         }
     }
 }

@@ -3,13 +3,12 @@ package Fabric;
 import java.io.*;
 import java.util.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import Commands.Command;
-import Exceptions.CreateCommandsExceptions;
+import MyExceptions.CreateCommandsExceptions;
 import Logging.MyLogger;
-import Exceptions.FabricExceptions;
+import MyExceptions.FabricExceptions;
 
 public class CommandCreator {
     private final Map<String, Class<? extends Commands.Command>> commandClassesMap;
@@ -23,7 +22,7 @@ public class CommandCreator {
 
     private void loadCommands() throws FabricExceptions {
         try (InputStream inputStream = CommandCreator.class.getResourceAsStream(CONFIG_FILE_NAME);
-             BufferedReader configFile = new BufferedReader(new InputStreamReader(inputStream))) { //check null
+             BufferedReader configFile = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = configFile.readLine()) != null) {
                 String[] parts = line.split(" ");
@@ -55,11 +54,11 @@ public class CommandCreator {
         }
     }
 
-    public Commands.Command createCommands(String commandName) {
+    public Commands.Command createCommands(String commandName, BufferedWriter errorStream) throws IOException {
         try {
             Class<? extends Command> commandClass = commandClassesMap.get(commandName);
             if (commandClass == null) {
-                throw new CreateCommandsExceptions("Unknown command:'" + commandName + "'.");
+                throw new CreateCommandsExceptions("Unknown command:\"" + commandName + "\".");
             }
 
             try {
@@ -70,7 +69,7 @@ public class CommandCreator {
             }
 
         } catch (CreateCommandsExceptions crCommExc) {
-            crCommExc.printException();
+            crCommExc.printException(errorStream);
             return null;
         }
     }

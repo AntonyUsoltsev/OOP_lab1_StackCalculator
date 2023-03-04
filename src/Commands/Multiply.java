@@ -1,13 +1,14 @@
 package Commands;
 
-import Calculator.Calculator;
-import Exceptions.CommandExceptions;
+import Calculator.Calculator.Parameters;
+import MyExceptions.CommandExceptions;
 
-import java.util.logging.Level;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class Multiply extends Command {
     @Override
-    public void action(String[] commandArgs, Calculator.Parameters parameters) {
+    public void action(String[] commandArgs, Parameters parameters, BufferedWriter errorStream) throws IOException {
         try {
             if (commandArgs.length != 1) {
                 throw new CommandExceptions("Invalid arguments for Multiply command.");
@@ -17,11 +18,11 @@ public class Multiply extends Command {
                 double doubleVal1 = parameters.getStack().pop();
                 double doubleVal2 = parameters.getStack().pop();
                 double res = doubleVal1 * doubleVal2;
-                LOGGER.log(Level.INFO, "Multiply: " + doubleVal1 + " * " + doubleVal2 + ".\n");
+                LOGGER.info("Multiply: " + doubleVal1 + " * " + doubleVal2 + ".\n");
                 parameters.getStack().push(res);
             }
         } catch (CommandExceptions commExc) {
-            commExc.printException();
+            commExc.printException(errorStream);
         }
     }
 }

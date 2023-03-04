@@ -1,11 +1,14 @@
 package Commands;
 
-import Calculator.Calculator;
-import Exceptions.CommandExceptions;
+import Calculator.Calculator.Parameters;
+import MyExceptions.CommandExceptions;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class Minus extends Command {
     @Override
-    public void action(String[] commandArgs, Calculator.Parameters parameters) {
+    public void action(String[] commandArgs, Parameters parameters, BufferedWriter errorStream) throws IOException {
         try {
             if (commandArgs.length != 1) {
                 throw new CommandExceptions("Invalid arguments for Minus command.");
@@ -18,8 +21,8 @@ public class Minus extends Command {
                 LOGGER.info("Minus: " + doubleVal1 + " - " + doubleVal2 + ".\n");
                 parameters.getStack().push(res);
             }
-        }catch (CommandExceptions commExc) {
-            commExc.printException();
+        } catch (CommandExceptions commExc) {
+            commExc.printException(errorStream);
         }
     }
 }

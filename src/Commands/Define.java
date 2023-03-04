@@ -1,11 +1,14 @@
 package Commands;
 
-import Calculator.Calculator;
-import Exceptions.CommandExceptions;
+import Calculator.Calculator.Parameters;
+import MyExceptions.CommandExceptions;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class Define extends Command {
     @Override
-    public void action(String[] commandArgs, Calculator.Parameters parameters) {
+    public void action(String[] commandArgs, Parameters parameters, BufferedWriter errorStream) throws IOException {
         try {
             if (commandArgs.length != 3) {
                 throw new CommandExceptions("Invalid arguments for Define command.");
@@ -23,7 +26,7 @@ public class Define extends Command {
                 }
             }
         } catch (CommandExceptions commExc) {
-            commExc.printException();
+            commExc.printException(errorStream);
         }
     }
 }

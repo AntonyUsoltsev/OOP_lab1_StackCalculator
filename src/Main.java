@@ -1,46 +1,70 @@
 import Calculator.Calculator;
-import Exceptions.CalculatorExceptions;
-import Exceptions.FabricExceptions;
+import MyExceptions.CalculatorExceptions;
+import MyExceptions.FabricExceptions;
 import Logging.MyLogger;
+import CreateStreams.CreateStreams;
 
 import java.io.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-import java.util.logging.Level;
+
 import java.util.logging.Logger;
 
 public class Main {
     private static final Logger LOGGER = MyLogger.getLogger();
 
-    public static void main(String[] args) {
-        try (BufferedReader reader = getReader(args)) {
+    public static void main(final String[] args) throws IOException {
+        BufferedWriter outputStream = null;
+        BufferedWriter errorStream = null;
+        BufferedReader inputStream = null;
 
-            Calculator calculator = new Calculator(reader);
+        try {
+            outputStream = CreateStreams.getOutputStream(args);
+            errorStream = CreateStreams.getErrorStream(args);
+            inputStream = CreateStreams.getInputStream(args);
+
+            Calculator calculator = new Calculator(inputStream, outputStream, errorStream);
 
             calculator.doCalculating();
 
-            LOGGER.log(Level.INFO, "End of all calculating.");
+            LOGGER.info("End of all calculating.");
 
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Commands file not found, thrown exception:" + e.getMessage() + "\n");
-            System.err.println(e.getMessage());
-            System.err.println(Arrays.toString(e.getStackTrace()));
-        } catch (FabricExceptions exc) {
-            exc.printException();
-            System.err.println(Arrays.toString(exc.getStackTrace()));
-        } catch (CalculatorExceptions exc) {
-            exc.printException();
-            System.err.println(Arrays.toString(exc.getStackTrace()));
-        }
-    }
+        } catch (FileNotFoundException ioExc) {
+            LOGGER.severe("Commands file not found, thrown exception:" + ioExc.getMessage() + "\n");
+            if (errorStream != null) {
+                errorStream.write(ioExc.getMessage() + '\n');
+                errorStream.write(Arrays.toString(ioExc.getStackTrace()));
+                errorStream.flush();
+            } else {
+                System.err.println("Commands file not found, thrown exception:" + ioExc.getMessage() + "\n");
+            }
 
-    private static BufferedReader getReader(String[] args) throws FileNotFoundException {
-        if (args.length > 0) {
-            LOGGER.log(Level.INFO, "Commands will be read from file\n");
-            return new BufferedReader(new FileReader(args[0]));
-        } else {
-            LOGGER.log(Level.INFO, "Commands will be read from System.in\n");
-            return new BufferedReader(new InputStreamReader(System.in));
+        } catch (FabricExceptions | CalculatorExceptions exc) {
+            exc.printException(errorStream);
+            errorStream.write(Arrays.toString(exc.getStackTrace()) );
+            errorStream.flush();
+
+        } finally {
+            try {
+                if (inputStream != null) inputStream.close();
+                if (outputStream != null) outputStream.close();
+                if (errorStream != null) errorStream.close();
+            } catch (IOException e) {
+                System.err.println("Error closing stream: " + e.getMessage());
+            }
+
         }
+        //catch (IOException e) {
+//            LOGGER.severe(e.getMessage() + "\n");
+//            BufferedWriter errorStream = CreateStreams.getErrorStream(args);
+//            errorStream.write(e.getMessage());
+        // }
+////            errorStream.write(Arrays.toString(e.getStackTrace()));
+//        } catch (FileNotFoundException fe) {
+//            System.err.println("ji2");
+////            System.err.flush();
+////            System.out.println("hh");
+////            System.out.flush();
+//
+//        }
     }
 }
