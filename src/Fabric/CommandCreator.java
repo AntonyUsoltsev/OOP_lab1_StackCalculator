@@ -63,8 +63,7 @@ public class CommandCreator {
 
             try {
                 return commandClass.getDeclaredConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
-                     InvocationTargetException e) {
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
                 throw new CreateCommandsExceptions("Failed to create command: " + commandName + "' while creating command.");
             }
 

@@ -9,7 +9,7 @@ public class MyLogger {
     private static final Logger LOGGER = Logger.getLogger(Logger.class.getName());
 
     static {
-        try (FileInputStream configFile = new FileInputStream("src/Logging/LogConfig")) {
+        try (FileInputStream configFile = new FileInputStream("./src/Logging/LogConfig")) {
             LogManager.getLogManager().readConfiguration(configFile);
             LOGGER.log(Level.CONFIG, "Logger configuration loaded.\n");
         } catch (Exception e) {

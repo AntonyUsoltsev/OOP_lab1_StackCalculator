@@ -16,8 +16,8 @@ public class MainTest {
     private void runCalculator(String text) {
         try (BufferedWriter file = new BufferedWriter(new FileWriter(inputFileName))) {
             file.write(text);
-        } catch (IOException ioexc) {
-            throw new RuntimeException(ioexc);
+        } catch (IOException ioExc) {
+            throw new RuntimeException(ioExc);
         }
 
         try (BufferedReader inputStream = new BufferedReader(new FileReader(inputFileName));
@@ -131,7 +131,7 @@ public class MainTest {
     }
 
     @Test
-    public void DefineCheck() {
+    public void defineCheck() {
         String commands = "DEFINE a 4\nDEFINE b 8\nDEFINE c f\nDEFINE 2 5\nPUSH a\nPUSH b\nPRINT\nPOP\nPRINT";
         try {
             runCalculator(commands);
