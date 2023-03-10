@@ -204,4 +204,17 @@ public class MainTest {
         }
     }
 
+    @Test
+    public void commentsCheck() {
+        String commands = "PUSH 1#23\n#Hi im comment\n     #And me too# # ## \nPRINT";
+        try {
+            runCalculator(commands);
+            BufferedReader checkOutStream = new BufferedReader(new FileReader(outputFileName));
+            assertEquals(checkOutStream.readLine(), "1.0");
+            checkOutStream.close();
+        } catch (RuntimeException | IOException exc) {
+            System.err.println(exc.getMessage());
+        }
+    }
+
 }

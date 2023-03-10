@@ -25,8 +25,9 @@ public class Calculator {
         private final Stack<Double> stack;
         private final Map<String, Double> variablesMap;
         private final BufferedWriter outputStream;
+
         public Parameters(BufferedWriter outputStream) {
-      this.stack = new Stack<>();
+            this.stack = new Stack<>();
             this.variablesMap = new HashMap<>();
             this.outputStream = outputStream;
         }
@@ -59,24 +60,31 @@ public class Calculator {
 
     public void doCalculating() throws FabricExceptions, CalculatorExceptions {
         try {
-            String line;
+
             CommandCreator commandCreator = new CommandCreator();
 
-            while ((line = inputStream.readLine()) != null) {
-                String[] parts = line.split(" ");
-                if (parts.length == 0 || line.equals("")) {
-                    LOGGER.severe("Unknown command:'" + line + "'.\n");
-                    System.err.println("Unknown command:'" + line + "'.\n");
-                    continue;
+            String commandLine;
+            while ((commandLine = inputStream.readLine()) != null) {
+
+                if (commandLine.contains("#")) {
+                    int hashCharInd = commandLine.indexOf('#');
+                    LOGGER.info("Find comments \"" + commandLine.substring(hashCharInd) + "\".\n");
+                    commandLine = commandLine.substring(0, hashCharInd);
+                    if (commandLine.equals("")) continue;
                 }
-                if (line.charAt(0) == '#') {
+
+                String[] commandParts = commandLine.split(" ");
+                if (commandParts.length == 0 || commandLine.equals("")) {
+                    LOGGER.severe("Unknown command: '" + commandLine + "'.\n");
+                    errorStream.write("Unknown command: '" + commandLine + "'.\n");
                     continue;
                 }
 
-                Command command = commandCreator.createCommands(parts[0], errorStream);
+                Command command = commandCreator.createCommands(commandParts[0], errorStream);
                 if (command != null) {                  // command == null when we get unknown command.
-                    command.action(parts, parameters, errorStream);
+                    command.action(commandParts, parameters, errorStream);
                 }
+
             }
         } catch (IOException ioExc) {
             throw new CalculatorExceptions(ioExc.getMessage());

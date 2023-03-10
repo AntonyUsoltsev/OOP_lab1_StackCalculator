@@ -1,44 +1,27 @@
-мар. 06, 2023 11:12:06 PM Logging.MyLogger <clinit>
+мар. 10, 2023 10:16:58 PM Logging.MyLogger <clinit>
 CONFIG: Logger configuration loaded.
 
-мар. 06, 2023 11:12:06 PM CreateStreams.CreateStreams getOutputStream
-INFO: Results will be write to file: .\src\Result.txt 
-
-мар. 06, 2023 11:12:06 PM CreateStreams.CreateStreams getErrorStream
-INFO: Errors will be write to file: .\src\Error.txt 
-
-мар. 06, 2023 11:12:06 PM CreateStreams.CreateStreams getInputStream
-INFO: Commands will be read from file: .\src\Commands.txt 
-
-мар. 06, 2023 11:12:06 PM Calculator.Calculator <init>
+мар. 10, 2023 10:16:59 PM Calculator.Calculator <init>
 INFO: Calculator constructor success done.
 
-мар. 06, 2023 11:12:06 PM Fabric.CommandCreator loadCommands
+мар. 10, 2023 10:16:59 PM Fabric.CommandCreator loadCommands
 INFO: Command creator has created commands.
 
-мар. 06, 2023 11:12:06 PM Commands.Define action
-INFO: The variable "a" has defined by 1.0E237.
+мар. 10, 2023 10:16:59 PM Calculator.Calculator doCalculating
+INFO: Find comments "#23".
 
-мар. 06, 2023 11:12:06 PM Commands.Define action
-INFO: The variable "b" has defined by 2.0E205.
+мар. 10, 2023 10:17:47 PM Commands.Push action
+INFO: Push number on stack: 1.0
 
-мар. 06, 2023 11:12:06 PM Commands.Multiply action
-INFO: Multiply: 2.0E205 * 1.0E237.
+мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+INFO: Find comments "#Hi im comment".
 
-мар. 06, 2023 11:12:06 PM Commands.Push action
-INFO: Push element on stack: 1.0
+мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+INFO: Find comments "#And me too# # ## ".
 
-мар. 06, 2023 11:12:06 PM Commands.Pop action
-INFO: Pop top element.
+мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+SEVERE: Unknown command: '     '.
 
-мар. 06, 2023 11:12:06 PM Commands.Push action
-INFO: Push element on stack: 2.0
+мар. 10, 2023 10:17:47 PM Commands.Print action
+INFO: Print top element of stack: 1.0
 
-мар. 06, 2023 11:12:06 PM Commands.Multiply action
-INFO: Multiply: 2.0 * Infinity.
-
-мар. 06, 2023 11:12:06 PM Commands.Print action
-INFO: Print top element of stack: Infinity
-
-мар. 06, 2023 11:12:06 PM Main main
-INFO: End of all calculating.

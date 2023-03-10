@@ -18,6 +18,9 @@ public class Plus extends Command {
                 double doubleVal1 = parameters.getStack().pop();
                 double doubleVal2 = parameters.getStack().pop();
                 double res = doubleVal1 + doubleVal2;
+                if(Double.isInfinite(res)){
+                    LOGGER.info("Overflow while plus: " + doubleVal1 + " + " + doubleVal2 + ".\n");
+                }
                 LOGGER.info( "Plus: " + doubleVal1 + " + " + doubleVal2 + ".\n");
                 parameters.getStack().push(res);
             }

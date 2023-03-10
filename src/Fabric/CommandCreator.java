@@ -25,13 +25,13 @@ public class CommandCreator {
              BufferedReader configFile = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
             while ((line = configFile.readLine()) != null) {
-                String[] parts = line.split(" ");
-                if (parts.length != 2) {
+                String[] fabricConfigParts = line.split(" ");
+                if (fabricConfigParts.length != 2) {
                     throw new FabricExceptions("Invalid fabric config line: " + line + ".");
                 }
 
-                Class<? extends Command> curClass = loadCommandClass(parts[1]);
-                commandClassesMap.put(parts[0], curClass);
+                Class<? extends Command> curClass = loadCommandClass(fabricConfigParts[1]);
+                commandClassesMap.put(fabricConfigParts[0], curClass);
             }
             LOGGER.info("Command creator has created commands.\n");
 

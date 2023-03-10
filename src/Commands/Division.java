@@ -22,6 +22,9 @@ public class Division extends Command {
                     throw new CommandExceptions("Division by zero.");
                 }
                 double res = doubleVal1 / doubleVal2;
+                if(Double.isInfinite(res)){
+                    LOGGER.info("Overflow while division: " + doubleVal1 + " / " + doubleVal2 + ".\n");
+                }
                 LOGGER.info("Division: " + doubleVal1 + " / " + doubleVal2 + "\n");
                 parameters.getStack().push(res);
             }
