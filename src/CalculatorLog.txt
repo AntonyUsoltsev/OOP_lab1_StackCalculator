@@ -1,27 +1,312 @@
-мар. 10, 2023 10:16:58 PM Logging.MyLogger <clinit>
+мар. 10, 2023 10:33:38 PM Logging.MyLogger <clinit>
 CONFIG: Logger configuration loaded.
 
-мар. 10, 2023 10:16:59 PM Calculator.Calculator <init>
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
 INFO: Calculator constructor success done.
 
-мар. 10, 2023 10:16:59 PM Fabric.CommandCreator loadCommands
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
 INFO: Command creator has created commands.
 
-мар. 10, 2023 10:16:59 PM Calculator.Calculator doCalculating
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: The variable "a" has been defined earlier.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 4.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Wrong type of second definitive value.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Wrong type of first definitive value.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 8.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 4.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM Commands.Plus action
+INFO: Plus: 8.0 + 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 12.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM Commands.Multiply action
+INFO: Multiply: 8.0 * 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 32.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Pop operation.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Print operation.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Pop operation.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Print operation.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Sqrt action
+INFO: Square root from 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 2.0
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: -1.0
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Square root from negative number.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator doCalculating
+INFO: Find comments "#7 8".
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 4.0
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 5.0
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 6.0
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 6.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 5.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 4.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Print operation.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator doCalculating
 INFO: Find comments "#23".
 
-мар. 10, 2023 10:17:47 PM Commands.Push action
+мар. 10, 2023 10:33:38 PM Commands.Push action
 INFO: Push number on stack: 1.0
 
-мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+мар. 10, 2023 10:33:38 PM Calculator.Calculator doCalculating
 INFO: Find comments "#Hi im comment".
 
-мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+мар. 10, 2023 10:33:38 PM Calculator.Calculator doCalculating
 INFO: Find comments "#And me too# # ## ".
 
-мар. 10, 2023 10:17:47 PM Calculator.Calculator doCalculating
+мар. 10, 2023 10:33:38 PM Calculator.Calculator doCalculating
 SEVERE: Unknown command: '     '.
 
-мар. 10, 2023 10:17:47 PM Commands.Print action
+мар. 10, 2023 10:33:38 PM Commands.Print action
 INFO: Print top element of stack: 1.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 0.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Division by zero.
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CommandExceptions printException
+SEVERE: Stack must have at least one elements to perform the Print operation.
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 1.0
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 2.0
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push number on stack: 3.0
+
+мар. 10, 2023 10:33:38 PM MyExceptions.CreateCommandsExceptions printException
+SEVERE: Unknown command:"UNKNOWN".
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 3.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 2.0
+
+мар. 10, 2023 10:33:38 PM Commands.Pop action
+INFO: Pop top element.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 1.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM Commands.Division action
+INFO: Division: 8.0 / 4.0
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 2.0
+
+мар. 10, 2023 10:33:38 PM Calculator.Calculator <init>
+INFO: Calculator constructor success done.
+
+мар. 10, 2023 10:33:38 PM Fabric.CommandCreator loadCommands
+INFO: Command creator has created commands.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "a" has defined by 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Define action
+INFO: The variable "b" has defined by 8.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: a
+
+мар. 10, 2023 10:33:38 PM Commands.Push action
+INFO: Push variable on stack: b
+
+мар. 10, 2023 10:33:38 PM Commands.Minus action
+INFO: Minus: 8.0 - 4.0.
+
+мар. 10, 2023 10:33:38 PM Commands.Print action
+INFO: Print top element of stack: 4.0
 

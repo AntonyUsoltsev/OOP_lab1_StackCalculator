@@ -1,4 +1,6 @@
-PUSH 1#23
-#Hi im comment
-     #And me too# # ## 
+DEFINE a 4
+DEFINE b 8
+PUSH a
+PUSH b
+-
 PRINT

@@ -116,8 +116,8 @@ public class MainTest {
     }
 
     @Test
-    public void printAndPopCheck() {
-        String commands = "PUSH 4\nPUSH 5\nPUSH 6\nPRINT\nPOP\nPRINT\nPOP\nPRINT";
+    public void pushAndPrintAndPopCheck() {
+        String commands = "PUSH 4 5 6 #7 8\nPRINT\nPOP\nPRINT\nPOP\nPRINT\nPOP\nPRINT";
         try {
             runCalculator(commands);
             BufferedReader checkOutStream = new BufferedReader(new FileReader(outputFileName));
@@ -125,10 +125,15 @@ public class MainTest {
             assertEquals(checkOutStream.readLine(), "5.0");
             assertEquals(checkOutStream.readLine(), "4.0");
             checkOutStream.close();
+
+            BufferedReader checkErrStream = new BufferedReader(new FileReader(errorFileName));
+            assertEquals(checkErrStream.readLine(), "Stack must have at least one elements to perform the Print operation.");
+            checkErrStream.close();
         } catch (RuntimeException | IOException exc) {
             System.err.println(exc.getMessage());
         }
     }
+
 
     @Test
     public void defineCheck() {
@@ -170,13 +175,13 @@ public class MainTest {
 
     @Test
     public void unknownCommandCheck() {
-        String commands = "PUSH 4\nPUSH 5\nPUSH 6\nUNKNOWN\nPRINT\nPOP\nPRINT\nPOP\nPRINT";
+        String commands = "PUSH 1 2 3\nUNKNOWN\nPRINT\nPOP\nPRINT\nPOP\nPRINT";
         try {
             runCalculator(commands);
             BufferedReader checkOutStream = new BufferedReader(new FileReader(outputFileName));
-            assertEquals(checkOutStream.readLine(), "6.0");
-            assertEquals(checkOutStream.readLine(), "5.0");
-            assertEquals(checkOutStream.readLine(), "4.0");
+            assertEquals(checkOutStream.readLine(), "3.0");
+            assertEquals(checkOutStream.readLine(), "2.0");
+            assertEquals(checkOutStream.readLine(), "1.0");
             checkOutStream.close();
 
             BufferedReader checkErrStream = new BufferedReader(new FileReader(errorFileName));
